@@ -17,14 +17,17 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `
   ).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+    result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: path.resolve(`./src/templates/blog_post.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
-          slug: node.fields.slug,
+          path: node.frontmatter.path
         },
       })
     })
