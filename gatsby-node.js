@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             frontmatter {
-              path
+              title
             } 
           }
         }
@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
     result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: `/blogs/1`,
         component: path.resolve(`./src/templates/blog_post.js`),
         context: {
           // Data passed to context is available
