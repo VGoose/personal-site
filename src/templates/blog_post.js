@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 
 export default ({ data }) => {
   const post = data.markdownRemark
@@ -15,10 +15,11 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    markdownRemark {
+  query($title: String!) {
+    markdownRemark(frontmatter: { title: { eq: $title } }) {
       html
       frontmatter {
+        author
         title
       }
     }

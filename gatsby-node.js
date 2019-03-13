@@ -20,13 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
       return Promise.reject(result.errors)
     }
     result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const slug = slugify(node.frontmatter.title, {lower: true, replacement: '-'})
       createPage({
-        path: `/blogs/${slugify(node.frontmatter.title, {lower: true, replacement: '-'})}`,
+        path: `/blogs/${slug}`,
         component: path.resolve(`./src/templates/blog_post.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
-          // path: node.frontmatter.path
+          title: node.frontmatter.title
         },
       })
     })
