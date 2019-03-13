@@ -1,0 +1,1 @@
+{"type":"PR","pr":{"number":5,"head":"9779bd2bcd034552750fb0c301c8246e3313de28"},"user":"anhvouw","status":"draft","branch":"cms/test-4","collection":"blog","title":"Test 4","description":"just slugify name","objects":{"entry":{"path":"_posts/blog/test-4.md","sha":"5674aec712fdaa63135f7e86efbc1a2ad0cee504"},"files":[]},"timeStamp":"2019-03-13T01:59:12.339Z"}
