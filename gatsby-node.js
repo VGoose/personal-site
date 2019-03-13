@@ -1,6 +1,5 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
+var slugify = require('slugify')
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
@@ -22,7 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
     result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: `/blogs/1`,
+        path: `/blogs/${slugify(node.frontmatter.title, {lower: true, replacement: '-'})}`,
         component: path.resolve(`./src/templates/blog_post.js`),
         context: {
           // Data passed to context is available
