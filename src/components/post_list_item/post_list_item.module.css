@@ -1,0 +1,15 @@
+.container {
+
+}
+.date {
+  font-size: 14px;
+  font-style: italic;
+}
+.title {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.desc {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}

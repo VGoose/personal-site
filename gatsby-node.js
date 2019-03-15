@@ -1,5 +1,20 @@
 const path = require(`path`)
-var slugify = require('slugify')
+const slugify = require('slugify')
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    createNodeField({
+      node,
+      name: 'path',
+      value: `/blogs/${slugify(
+        node.frontmatter.title,
+        { replacement: '-', lower: true }
+      )}`
+    })
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
@@ -7,9 +22,12 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark {
         edges {
           node {
+            fields {
+              path
+            }
             frontmatter {
               title
-            } 
+            }
           }
         }
       }
@@ -19,17 +37,17 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       return Promise.reject(result.errors)
     }
-    result.data.allMarkdownRemark && result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const slug = slugify(node.frontmatter.title, {lower: true, replacement: '-'})
-      createPage({
-        path: `/blogs/${slug}`,
-        component: path.resolve(`./src/templates/blog_post.js`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          title: node.frontmatter.title
-        },
+    result.data.allMarkdownRemark &&
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.path,
+          component: path.resolve(`./src/templates/blog_post.js`),
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            title: node.frontmatter.title
+          },
+        })
       })
-    })
   })
 }

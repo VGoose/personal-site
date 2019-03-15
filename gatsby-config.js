@@ -5,6 +5,12 @@ module.exports = {
     author: `Anh Vo`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`autoprefixer`)]
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     {
@@ -28,7 +34,14 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    // this (optional) plugin enables Progressive Web App +
+    // Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
   ],

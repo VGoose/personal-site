@@ -1,19 +1,35 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import PostList from '../components/post_list'
 
-const IndexPage = () => (
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <PostList posts={data.allMarkdownRemark.edges} />
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    allMarkdownRemark (sort: {order: DESC, fields: frontmatter___date}) {
+      edges {
+        node {
+          fields {
+            path
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            description
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
