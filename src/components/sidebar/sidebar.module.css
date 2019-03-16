@@ -1,0 +1,12 @@
+.container {
+  grid-area: side;
+  position: relative;
+  padding-right: 1rem;
+}
+.divider{
+  position:absolute;
+  right: 0;
+  top: 1rem;
+  bottom: 1rem;
+  border-left:1px solid #ddd;
+}

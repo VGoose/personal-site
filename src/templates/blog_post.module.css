@@ -1,0 +1,6 @@
+.container {
+  grid-area: 'content'
+}
+.container > p {
+  margin-left: .5rem;
+}

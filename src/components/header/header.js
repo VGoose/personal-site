@@ -4,15 +4,15 @@ import React from 'react'
 import Avatar from '../avatar'
 import Bio from '../bio'
 
-import headerStyle from './header.module.css'
+import style from './header.module.css'
 
 const Header = ({ siteTitle, siteAuthor, avatarSource }) => (
   <>
-    <header className={headerStyle.header}>
-      <Avatar avatarSource={avatarSource} />
-      <Bio author={siteAuthor} />
+    <header className={style.header}>
+      <Avatar className={style.avatar} avatarSource={avatarSource} />
+      <Bio className={style.bio} author={siteAuthor} />
     </header>
-    <hr className={headerStyle.hr} />
+    <hr className={style.hr} />
   </>
 )
 

@@ -1,15 +1,16 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout/layout"
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout/layout'
+
+import style from './blog_post.module.css'
 
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      <h1>{post.frontmatter.title}</h1>
+      <div className={style.container}
+        dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>
   )
 }

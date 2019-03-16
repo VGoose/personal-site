@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import Bio from '../bio'
 
 import Avatar from '../avatar'
 
-import './sidebar.module.css'
+import style from './sidebar.module.css'
 
 const Sidebar = ({ siteTitle, avatarSource }) => (
-  <React.Fragment>
-    <h1>{siteTitle}</h1>
-    <div className="container">
-      <Avatar avatarSource={avatarSource} />
-    </div>
-  </React.Fragment>
+  <div className={style.container}>
+    <Avatar className={style.avatar} avatarSource={avatarSource} />
+    <Bio className={style.bio} author="Anh Vo" />
+    <div className={style.divider}></div>
+  </div>
 )
 
 Sidebar.propTypes = {

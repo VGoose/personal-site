@@ -17,7 +17,7 @@ This can be surprisingly hard.  Especially if you’re trying to test a non-stan
 
 ## Quirks with matching
 
-Detox provides a few ways to find your components (I’ll use this interchangeably with element).  The TestID prop will be your bread and butter for finding components.  However, in some cases, it will refuse to match and make you want to pull your hair out.  Detox will have a lot of trouble finding components by TestID that are nested inside multiple scrollviews or nested in render props - you’ll have to use an alternative matcher for these cases.
+<p class="first">Detox provides a few ways to find your components (I’ll use this interchangeably with element).  The TestID prop will be your bread and butter for finding components.  However, in some cases, it will refuse to match and make you want to pull your hair out.  Detox will have a lot of trouble finding components by TestID that are nested inside multiple scrollviews or nested in render props - you’ll have to use an alternative matcher for these cases.</p>
 
 It also does not match by text very well, especially on Expo builds.  A much more reliable way to match text is actually to match by label. Although the docs state that match by label is used for components with the accesibilityLabel prop, it actually hits text as well. 
 

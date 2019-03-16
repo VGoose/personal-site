@@ -37,18 +37,19 @@ const Layout = ({ children }) => {
     render={data => {
       const { title, author } = data.site.siteMetadata
       return (
-        <React.Fragment>
+        <div className={style.container}>
           {isMobile
             ? <Header siteAuthor={author} siteTitle={title}
               avatarSource={avatar}
             />
             : <Sidebar siteTitle={title} avatarSource={avatar} />}
-          <div className={style.container}>
+          <div className={style.content}>
             <main>{children}</main>
             <footer>
             </footer>
           </div>
-        </React.Fragment>
+          <div className={style.divider}></div>
+        </div>
       )
     }}
   />
