@@ -1,0 +1,20 @@
+.container {
+    position: sticky;
+    top: 0px;
+    background-color: #fffe
+}
+.nav {
+    grid-area: nav;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+}
+.item {
+    margin: 0 1rem;
+}
+.divider {
+    color: #aaa;
+    height: 0.5px;
+}

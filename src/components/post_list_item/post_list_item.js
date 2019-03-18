@@ -15,7 +15,7 @@ const PostListItem = ({ title, date, description, path }) => (
 )
 PostListItem.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.object,
+  date: PropTypes.string,
   description: PropTypes.string,
 }
 export default PostListItem

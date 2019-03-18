@@ -6,8 +6,8 @@ import style from './avatar.module.css'
 
 const Avatar = ({ avatarSource }) => (
   <React.Fragment>
-    <Link to="/">
-      <div className={style.container}>
+    <Link to="/" className={style.container}>
+      <div className={style.imgContainer}>
         <img className={style.img} src={avatarSource} />
       </div>
     </Link>

@@ -5,6 +5,7 @@ import throttle from 'lodash/throttle'
 
 import Header from '../header'
 import Sidebar from '../sidebar'
+import NavMenu from '../nav_menu'
 
 import avatar from '../../../static/images/avatar.jpg'
 
@@ -43,6 +44,7 @@ const Layout = ({ children }) => {
               avatarSource={avatar}
             />
             : <Sidebar siteTitle={title} avatarSource={avatar} />}
+            <NavMenu />
           <div className={style.content}>
             <main>{children}</main>
             <footer>
