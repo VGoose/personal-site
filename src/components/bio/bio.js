@@ -5,7 +5,7 @@ import style from './bio.module.css'
 
 const Bio = ({ author }) => (
   <div className={style.container}>
-    <h1 className={style.author}>{author}</h1>
+    <h1 className={style.author}>{author.toLowerCase()}</h1>
     <p className={style.desc}>Hi, this is my blog where
     I write about things that interest me.</p>
   </div>

@@ -40,11 +40,15 @@ const Layout = ({ children }) => {
       return (
         <div className={style.container}>
           {isMobile
-            ? <Header siteAuthor={author} siteTitle={title}
-              avatarSource={avatar}
-            />
+            ? <>
+              <Header
+                siteAuthor={author}
+                siteTitle={title}
+                avatarSource={avatar}
+              />
+              <NavMenu />
+            </>
             : <Sidebar siteTitle={title} avatarSource={avatar} />}
-            <NavMenu />
           <div className={style.content}>
             <main>{children}</main>
             <footer>

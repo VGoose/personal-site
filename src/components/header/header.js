@@ -12,7 +12,6 @@ const Header = ({ siteTitle, siteAuthor, avatarSource }) => (
       <Avatar className={style.avatar} avatarSource={avatarSource} />
       <Bio className={style.bio} author={siteAuthor} />
     </header>
-    {/* <hr className={style.hr} /> */}
   </>
 )
 
