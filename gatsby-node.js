@@ -15,11 +15,12 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return graphql(`
+  const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark (sort: {order: DESC, fields: frontmatter___date}) {
+        totalCount
         edges {
           node {
             fields {
@@ -27,27 +28,46 @@ exports.createPages = ({ graphql, actions }) => {
             }
             frontmatter {
               title
+              date(formatString: "MMMM DD, YYYY")
+              description
             }
           }
         }
       }
     }
-  `
-  ).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
-    result.data.allMarkdownRemark &&
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.path,
-          component: path.resolve(`./src/templates/blog_post.js`),
-          context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            title: node.frontmatter.title
-          },
-        })
+  `)
+
+  if (result.errors) {
+    return result.errors
+  }
+  // create posts
+  result.data.allMarkdownRemark &&
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.path,
+        component: path.resolve(`./src/templates/blog_post.js`),
+        context: {
+          title: node.frontmatter.title
+        },
       })
-  })
+    })
+
+  // create pagination pages
+  if (result.data.allMarkdownRemark) {
+    const { totalCount } = result.data.allMarkdownRemark
+    const postsPerPage = 5
+    const totalPages = Math.ceil(totalCount / postsPerPage)
+    Array.from({ length: totalPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/` : `blogs/page/${i + 1}`,
+        component: path.resolve('./src/templates/blog_list.js'),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          totalPages,
+          currentPage: i + 1
+        }
+      })
+    })
+  }
 }

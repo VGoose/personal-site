@@ -8,9 +8,10 @@
   border-radius: 50%;
   background-color: white;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .img {
-  margin-left: -25%; 
   height: 100%;
   width: auto;
 }

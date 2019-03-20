@@ -1,0 +1,18 @@
+.container {
+  display: grid;
+  grid-template: 
+    "img title" 1fr
+    "img desc" 3fr
+    / 2fr 5fr;
+  margin: 0.5rem 1rem 0;
+}
+.container > image {
+  grid-area: img;
+}
+.container > h2 {
+  grid-area: title;
+}
+.container > p {
+  grid-area: desc;
+  font-size: 0.8rem;
+}

@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import ProjectLink from '../components/project_link/project_link'
 
 const About = () => (
   <Layout>
@@ -17,10 +18,16 @@ const About = () => (
       Check out my <a target="_blank" href="https://github.com/vgoose">Github
       </a> forfull details and source code!
     </p>
-    <Project
-      url='https://github.com/VGoose/react-native-realistic-deck-swiper'
-
-    />
+    {
+      projects.map(p => (
+        <ProjectLink
+          title={p.name}
+          image={p.img}
+          path={p.url}
+          desc={p.desc}
+        />
+      ))
+    }
   </Layout>
 )
 const projects = [
@@ -45,12 +52,5 @@ const projects = [
     Imitates The New Yorker App's cartoons swipe deck.`
   },
 ]
-const Project = ({ name, url, img, desc }) => (
-  <Link to={url}>
-    <img src={img} />
-    <h2>{name}</h2>
-    <p>{desc}</p>
-  </Link>
-)
 
 export default About
