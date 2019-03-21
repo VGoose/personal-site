@@ -1,18 +1,24 @@
 .container {
   display: grid;
   grid-template: 
-    "img title" 1fr
-    "img desc" 3fr
-    / 2fr 5fr;
+    "img text" 
+    / 80px 3fr;
   margin: 0.5rem 1rem 0;
 }
-.container > image {
+.imgContainer {
   grid-area: img;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
 }
-.container > h2 {
-  grid-area: title;
+
+.text {
+  grid-area: text;
 }
-.container > p {
-  grid-area: desc;
+.container p {
   font-size: 0.8rem;
+}
+.text h3 {
+  margin-bottom: 0.1rem;
 }

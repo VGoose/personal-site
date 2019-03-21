@@ -1,6 +1,6 @@
 ---
 title: The joys of Detox 
-description: Getting up and running with Detox
+description: Getting up and running with a no-hand-holding, barebones testing library.    
 author: Anh Vo
 date: 2019-03-15T04:39:27.148Z
 ---

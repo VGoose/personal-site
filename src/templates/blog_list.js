@@ -24,7 +24,8 @@ const BlogList = ({ data, pageContext }) => (
 
 export const query = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark (limit: $limit, skip: $skip) {
+    allMarkdownRemark (limit: $limit, skip: $skip, sort: 
+      {order: DESC, fields: frontmatter___date}) {
       edges {
         node {
           fields {
