@@ -5,7 +5,7 @@ author: Anh Vo
 date: 2019-01-12T01:39:27.148Z
 ---
 
---Don't make me think
+Don't make me think
   - don't make them think
   - users attention is fickle - user's scan 
   - users usually in a hurry
