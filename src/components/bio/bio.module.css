@@ -8,3 +8,6 @@
 .desc {
   margin-bottom: 0;
 }
+.iconContainer div {
+  margin: 0 .2rem;
+}

@@ -1,5 +1,7 @@
 import Typography from 'typography'
 import kirkhamTheme from 'typography-theme-kirkham'
+import githubTheme from 'typography-theme-github'
+
 kirkhamTheme.scaleRatio = 2.2
 kirkhamTheme.googleFonts = [
   {
@@ -17,7 +19,7 @@ kirkhamTheme.overrideThemeStyles = () => ({
   }
 })
 kirkhamTheme.headerWeight = 400
-const typography = new Typography(kirkhamTheme)
+const typography = new Typography(githubTheme)
 
 export default typography
 export const rhythm = typography.rhythm

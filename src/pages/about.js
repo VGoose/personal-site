@@ -54,7 +54,13 @@ export const query = graphql`
     rn: file(relativePath: {eq: "rn.png"}) {
       ...squareImage
     }
-
+    gatsby: file(relativePath: {eq: "gatsby.png"}) {
+      childImageSharp {
+        fixed(width: 60, height: 60, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
   }
 `
 
@@ -62,8 +68,8 @@ const projects = [
   {
     name: 'anhvo.io',
     url: 'https://github.com/VGoose/personal-site',
-    imgName: 'gogonow',
-    desc: `Personal site built with Gatsby and React hooks!`
+    imgName: 'gatsby',
+    desc: `Personal site built with Gatsby, Netlify CMS, and React Hooks.`
   },
   {
     name: 'gogonow',

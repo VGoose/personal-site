@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import throttle from 'lodash/throttle'
@@ -12,7 +12,7 @@ import avatar from '../../../static/images/avatar.jpg'
 import style from './layout.module.css'
 
 const Layout = ({ children }) => {
-  const getInitialView = () => window.innerWidth < 600
+  const getInitialView = () => window && window.innerWidth < 600
   const [isMobile, setIsMobile] = useState(getInitialView())
   useLayoutEffect(() => {
     if (typeof window !== `undefined`) {

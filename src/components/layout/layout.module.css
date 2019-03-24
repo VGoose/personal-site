@@ -1,9 +1,9 @@
-a:link, a:visited {
+a:link, a:hover {
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+a:visited {
 }
+
 .container {
   margin: 0 auto;
   max-width: 960px;
@@ -19,7 +19,7 @@ a:hover {
     display: grid;
     grid-template: 
       "side content" 1fr
-      / minmax(200px, 2fr) 5fr;
+      / 200px 1fr;
   }
   
   .content {
