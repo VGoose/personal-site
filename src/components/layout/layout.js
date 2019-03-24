@@ -12,7 +12,7 @@ import avatar from '../../../static/images/avatar.jpg'
 import style from './layout.module.css'
 
 const Layout = ({ children }) => {
-  const getInitialView = () => window && window.innerWidth < 600
+  const getInitialView = () => window ? window.innerWidth < 600 : null
   const [isMobile, setIsMobile] = useState(getInitialView())
   useLayoutEffect(() => {
     if (typeof window !== `undefined`) {
