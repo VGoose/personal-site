@@ -31,6 +31,7 @@ export const query = graphql`
             path
           }
           frontmatter {
+            draft
             title
             date(formatString: "MMMM DD, YYYY")
             description

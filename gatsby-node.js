@@ -27,7 +27,6 @@ exports.createPages = async ({ graphql, actions }) => {
               path
             }
             frontmatter {
-              draft
               title
               date(formatString: "MMMM DD, YYYY")
               description
@@ -44,9 +43,6 @@ exports.createPages = async ({ graphql, actions }) => {
   // create posts
   result.data.allMarkdownRemark &&
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.frontmatter.draft) {
-        return
-      }
       createPage({
         path: node.fields.path,
         component: path.resolve(`./src/templates/blog_post.js`),

@@ -8,9 +8,12 @@ import style from './post_list.module.css'
 const PostList = ({ posts }) => (
   <div className={style.container}>
     {posts.map(({ node }, index) => {
-      const { title, date, description } = node.frontmatter
+      const { title, date, description, draft } = node.frontmatter
       const { path } = node.fields
       // eslint-disable-next-line template-curly-spacing
+      if(draft) {
+        return
+      }
       return <PostListItem
         key={`${index}${title}`}
         path={path} title={title}
