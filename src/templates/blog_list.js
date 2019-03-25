@@ -8,9 +8,8 @@ import SEO from '../components/seo'
 import PaginationLinks from '../components/pagination_links'
 
 const BlogList = ({ data, pageContext }) => (
-  console.log(pageContext) ||
   <Layout>
-    <SEO title="Blog" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Blog" keywords={[`software`, `react`, `gatsby`]} />
     <PostList posts={data.allMarkdownRemark.edges} />
     {
       pageContext.totalPages > 1

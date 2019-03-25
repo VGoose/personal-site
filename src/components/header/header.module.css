@@ -3,7 +3,7 @@
   grid-template: 
     "avatar bio" 1fr
     / 1fr 2fr;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
 }
 .avatar {
   grid-area: avatar;

@@ -2,7 +2,7 @@
 title: Imitating NYer Today's realistic swipe deck with React-Native PanResponder
 description: Realistic animations with React Native Gesture Responders
 author: Anh Vo
-date: 2019-03-13T04:39:27.148Z
+date: 2019-03-01T04:39:27.148Z
 ---
 
 The New Yorker's IOS app "NYer Today" has the most satisfying card swipe animation I've ever used.

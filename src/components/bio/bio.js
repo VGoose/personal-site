@@ -25,7 +25,6 @@ const Bio = ({ author }) => (
       }
     `}
     render={data => (
-      console.log(data) ||
       <div className={style.container}>
         <h1 className={style.author}>{author.toLowerCase()}</h1>
         <p className={style.desc}>Hi, this is my blog where

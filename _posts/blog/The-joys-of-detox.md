@@ -2,7 +2,7 @@
 title: The joys of Detox 
 description: Getting up and running with a no-hand-holding, bare-bones testing library.    
 author: Anh Vo
-date: 2019-03-15T04:39:27.148Z
+date: 2019-02-25T04:39:27.148Z
 ---
 I recently started using Detox to test my react-native app.  If you’re unfamiliar, here is its description from Github: 
 
