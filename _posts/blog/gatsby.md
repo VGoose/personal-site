@@ -47,7 +47,7 @@ and makes it available for the webpack.
 In this phase, Gatsby uses the data made available in site/.cache/ and webpack to build the static html and the javascript app. 
   - static html files are created from your pages, components, and data\
   - the javascript app is created
-    - this app runs on the client side after the html is served (this is how you can write dynamic Gatsby sites, i.e stateful components)
+    - this dynamic app runs on the client side after the html is served (this is how you can write dynamic Gatsby sites, i.e stateful components)
 
 ## Result
 
