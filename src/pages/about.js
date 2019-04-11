@@ -14,9 +14,18 @@ const About = ({ data }) => (
     <h1>About Me</h1>
     <p>
       Hi, I'm a mechanical engineer who's really into software.
-      I'm a University of Washington alum currently living in NYC. 
-      I'm really passionate about React and the ecosystem surrounding it, especially Gatsby.
+      I'm a University of Washington alum currently living in NYC.
+      I'm really passionate about React and the ecosystem surrounding it,
+       especially Gatsby.
     </p>
+    <h3>Open Source</h3>
+    <p>
+      <a href="https://github.com/gatsbyjs/gatsby" target="_blank">
+        GatsbyJS:
+      </a>
+      {` Maintainer`}
+    </p>
+    <h3>Projects</h3>
     <p>
       Below are some of my projects that I've built.
       Check out my <a target="_blank" href="https://github.com/vgoose">Github
@@ -70,7 +79,8 @@ const projects = [
     name: 'anhvo.dev',
     url: 'https://github.com/VGoose/personal-site',
     imgName: 'gatsby',
-    desc: `Personal site built with Gatsby & Netlify CMS.  SEO optimized and fast image loading.`
+    desc: `Personal site built with Gatsby & Netlify CMS.  
+    SEO optimized and fast image loading.`
   },
   {
     name: 'gogonow',
